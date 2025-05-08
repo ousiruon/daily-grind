@@ -1,0 +1,15 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --font-logo: "Dancing Script", cursive;
+  --font-body: "Raleway", sans-serif;
+  --color-dark-bg: #2a2a35;
+  --color-dark-bg-2: #272731;
+  --color-dark-text: #fffffe;
+  --color-dark-accent: #219cd9;
+  --color-light-bg: #ebebeb;
+  --color-light-bg-2: #ffffff;
+  --color-light-text: #0f4189;
+  --color-light-accent: #105562;
+  --color-btn-remove: #9f0000;
+}
