@@ -10,7 +10,7 @@ const Login = () => {
     const username = e.currentTarget.username?.value;
     const password = e.currentTarget.password?.value;
     const rememberMe = e.currentTarget.rememberMe?.checked;
-    if (username === "Demo" && password === "Demo") {
+    if (username === "demo" && password === "demo") {
       dispatch(setSignIn(true));
       if (rememberMe) {
         useLocalStorage("signedIn").setItem(true);
@@ -46,7 +46,7 @@ const Login = () => {
                 <label htmlFor="rememberMe">Remember me</label>
               </div>
               <div className="text-sm text-light-accent dark:text-dark-accent">
-                Enter <div className="inline font-bold">"Demo"</div> for both
+                Enter <div className="inline font-bold">"demo"</div> for both
                 username and password
               </div>
               <button
