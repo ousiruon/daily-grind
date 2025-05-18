@@ -27,7 +27,7 @@ const RightMain = () => {
         dispatch(setMobileMenu(false));
       }
     });
-  });
+  },[]);
   return (
     <>
       <motion.div
