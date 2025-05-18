@@ -23,7 +23,7 @@ const Login = () => {
         <div className="flex text-5xl text-light-accent dark:text-dark-accent font-bold">
           <Logo width="w-10" height="h-10" animated={true} />
         </div>
-        <form onSubmit={submitLogin}>
+        <form className="max-w-[95%]" onSubmit={submitLogin}>
           <div className="flex flex-col items-center justify-center w-full">
             <div className="flex flex-col items-center justify-center gap-5 w-full max-w-md px-15 py-10 bg-light-bg-2 dark:bg-dark-bg-2 text-light-text dark:text-dark-text rounded-2xl shadow-sm shadow-light-bg-2 dark:shadow-dark-bg-2">
               <h1 className="text-xl font-bold text-light-accent dark:text-dark-accent">

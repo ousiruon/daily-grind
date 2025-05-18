@@ -38,14 +38,17 @@ const Toggler = () => {
       dispatch(setDarkMode(false));
     }
   };
+  const signedIn: Boolean = useSelector((state: IntialState) => state.signedIn);
   return (
     <>
-      <div
-        className="absolute top-0 left-0 flex md:hidden items-center justify-center mx-4 mt-2 p-1 text-2xl text-light-accent dark:text-dark-accent cursor-pointer gap-2 rounded-2xl inset-shadow-light-bg dark:inset-shadow-dark-bg inset-shadow-2xl transition duration-200 ease-in-out"
-        onClick={() => dispatch(setMobileMenu(true))}
-      >
-        <IoMdMenu />
-      </div>
+      {signedIn && (
+        <div
+          className={`absolute top-0 left-0 flex md:hidden items-center justify-center mx-4 mt-2 p-1 text-2xl text-light-accent dark:text-dark-accent cursor-pointer gap-2 rounded-2xl inset-shadow-light-bg dark:inset-shadow-dark-bg inset-shadow-2xl transition duration-200 ease-in-out`}
+          onClick={() => dispatch(setMobileMenu(true))}
+        >
+          <IoMdMenu />
+        </div>
+      )}
       <div
         className="absolute top-0 right-0 flex items-center justify-center mx-4 mt-2 p-1 text-2xl bg-light-bg-2 dark:bg-dark-bg-2 text-light-accent dark:text-dark-accent cursor-pointer gap-2 rounded-2xl inset-shadow-light-bg dark:inset-shadow-dark-bg inset-shadow-2xl transition duration-200 ease-in-out"
         onClick={updateTheme}
