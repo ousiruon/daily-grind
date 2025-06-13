@@ -156,7 +156,7 @@ const RetrieveProject = ({ project }: { project: Project }) => {
               : dispatch(setPinnedProject(project.id))
           }
           className={`absolute top-2 right-2 cursor-pointer flex items-center justify-center rounded-full p-2 hover:bg-light-text hover:dark:bg-dark-text hover:text-light-bg hover:dark:text-dark-accent  opacity-50 hover:opacity-100 transition-all duration-300 ease-in-out ${
-            activeHover === project.id ? "block" : "hidden"
+            activeHover === project.id ? "block" : "block md:hidden"
           }`}
         >
           {isEditing.editing && isEditing.projectId === project.id ? (
@@ -187,7 +187,7 @@ const RetrieveProject = ({ project }: { project: Project }) => {
                     dispatch(setEditingProject(true, project.id));
                   }}
                   className={`${
-                    activeHover === project.id ? "inline-block" : "hidden"
+                    activeHover === project.id ? "inline-block" : "inline-block md:hidden"
                   } ml-2 cursor-pointer`}
                 >
                   <MdOutlineEdit />

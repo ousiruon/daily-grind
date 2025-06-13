@@ -79,7 +79,7 @@ const RetrieveTodo = ({
         </div>
         <div
           onClick={() => dispatch(deleteToDo(toDo.id, projectID))}
-          className={`${active === toDo.id ? "block" : "hidden"}`}
+          className={`${active === toDo.id ? "block" : "block md:hidden"}`}
         >
           <RxCross2 />
         </div>
