@@ -187,7 +187,9 @@ const RetrieveProject = ({ project }: { project: Project }) => {
                     dispatch(setEditingProject(true, project.id));
                   }}
                   className={`${
-                    activeHover === project.id ? "inline-block" : "inline-block md:hidden"
+                    activeHover === project.id
+                      ? "inline-block"
+                      : "inline-block md:hidden"
                   } ml-2 cursor-pointer`}
                 >
                   <MdOutlineEdit />
@@ -204,6 +206,11 @@ const RetrieveProject = ({ project }: { project: Project }) => {
                 <div className="flex gap-2 items-center" id="ToDosInput">
                   <GoPlus size={20} />
                   <input
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        newTaskExistingProject(project.id);
+                      }
+                    }}
                     id="ToDoInput"
                     className="text-xs w-full py-1 text-light-text dark:text-dark-text outline-0 focus:outline-0"
                     placeholder="Enter a new task..."
@@ -237,7 +244,7 @@ const RetrieveProject = ({ project }: { project: Project }) => {
                         className={`absolute top-[50%] right-2 translate-y-[-50%] bg-light-text text-light-bg dark:bg-dark-text dark:text-dark-accent rounded cursor-pointer transition-all duration-300 ease-in-out ${
                           deleteTagHover === `${tag.title}${index}`
                             ? "block"
-                            : "hidden"
+                            : "block md:hidden"
                         }`}
                       >
                         <RxCross2 />
@@ -275,11 +282,11 @@ const RetrieveProject = ({ project }: { project: Project }) => {
         {isTagOpen.state && isTagOpen.id === project.id && (
           <>
             <div className="fixed top-0 left-0 w-full h-full bg-black opacity-50 z-1"></div>
-            <div className="fixed top-20 left-[50%] translate-x-[-50%] dark:bg-dark-bg bg-light-bg z-4 border-1 w-[300px] max-h-[50vh] overflow-x-hidden overflow-y-auto p-6 flex gap-5 flex-col items-start">
+            <div className="fixed top-5 left-[50%] translate-x-[-50%] dark:bg-dark-bg bg-light-bg z-4 border-1 w-[90%] max-w-[300px] h-full max-h-[90%] overflow-x-hidden overflow-y-auto p-6 flex gap-5 flex-col items-start">
               {tagsInProjectEdit.length > 0 && (
                 <div className="flex flex-col gap-3 w-full justify-start items-center max-h-[500px]">
-                  <div className="flex w-full justify-between items-center px-3 py-2">
-                    <div>Add Tags to this project</div>
+                  <div className="flex w-full justify-between items-center px-0 py-2">
+                    <div className="text-sm">Add Tags to this project</div>
                     <div
                       onClick={() => closeTagModal(project.id)}
                       className="cursor-pointer"

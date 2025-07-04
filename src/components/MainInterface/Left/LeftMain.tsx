@@ -27,7 +27,15 @@ const RightMain = () => {
         dispatch(setMobileMenu(false));
       }
     });
-  },[]);
+  }, []);
+  const onProjectClick = (to: number | null) => {
+    if (to === null) {
+      dispatch(setSelectedTag(null));
+    } else {
+      dispatch(setSelectedTag(to));
+    }
+    dispatch(setMobileMenu(false));
+  };
   return (
     <>
       <motion.div
@@ -62,7 +70,7 @@ const RightMain = () => {
         </div>
         <div className="flex flex-col gap-2 w-full items-start justify-start pb-6">
           <div
-            onClick={() => dispatch(setSelectedTag(null))}
+            onClick={() => onProjectClick(null)}
             className={`text-sm font-semibold cursor-pointer w-full py-2 px-2 hover:bg-light-accent hover:dark:bg-dark-accent hover:text-light-bg hover:dark:text-dark-text transition-all duration-300 ease-in-out ${
               options.selectedTag === null
                 ? "bg-light-accent dark:bg-dark-accent text-light-bg dark:text-dark-text"
@@ -76,7 +84,7 @@ const RightMain = () => {
             filteredTags.map((tag) => (
               <div
                 key={tag.id}
-                onClick={() => dispatch(setSelectedTag(tag.id))}
+                onClick={() => onProjectClick(tag.id)}
                 className={`text-sm font-semibold cursor-pointer w-full py-2 px-2 hover:bg-light-accent hover:dark:bg-dark-accent hover:text-light-bg hover:dark:text-dark-text transition-all duration-300 ease-in-out ${
                   options.selectedTag === tag.id
                     ? "bg-light-accent dark:bg-dark-accent text-light-bg dark:text-dark-text"
